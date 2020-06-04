@@ -1,20 +1,22 @@
-def parseRep(userIN):
-    userIN = userIN.upper()
-    if 'Y' in userIN:
-        return True
-    return False
-
 print('Welcome to the temperature converter!')
 print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n')
 repeat = True
 loops = 0
+
 while repeat:
-    print ('\n')
-    print ('enter the temp code')
-    #if loops == 0:
+    print('\n')
+    code = input('Enter the code:')
+    
+    valid = False
+    while valid != True:
+        try:
+            temp= float(input('Enter the temperature in \N{DEGREE SIGN}' + 'C' + ':'))
+            valid = True
+        except ValueError:
+            print('\nPlease enter a valid temperature!\n')
 
     print ('Would you like to make another calculation?')
-    repeat = parseRep(input())
+    repeat = 'Y' in input().upper()
     loops += 1
 
-print('Goodbye')
+print('\nGoodbye')
